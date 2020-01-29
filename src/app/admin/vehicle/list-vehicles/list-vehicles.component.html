@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vehicles </title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h3>Vehicles</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Vehicles Id</th>
+            <th>Make </th>
+            <th>Model </th>
+            <th>Fuel </th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vehicle of vehicles">
+            <td>{{vehicle.id}}</td>
+            <td>{{vehicle.make}}</td>
+            <td>{{vehicle.model}}</td>
+            <td>{{vehicle.fuelType}}</td>
+            <td><a routerLink="/admin/editvehicle/{{vehicle.id}}"><input class="btn btn-warning" type="button" value="Edit"></a></td>
+            <td><input class="btn btn-danger" type="button" (click)="DeleteVehicle(vehicle.id)" value="Delete"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

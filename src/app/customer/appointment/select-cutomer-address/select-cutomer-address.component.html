@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Addresses</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h3>Select Address to pickup</h3>
+    </div>
+    <div class="table-responsive">
+       <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Address Id</th>
+            <th style="align-content: center;">Address </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let address of addresses">
+              <td>{{address.id}}</td>
+              <td>
+                {{address.streetAddress}}
+                {{address.landmark}}
+                {{address.city}}
+                {{address.pincode}}
+                {{address.state}}
+                {{address.country}}</td>
+            <td>
+                <input (click)="SelectPickupAddress(address)" type="button" value="Select">
+            </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>

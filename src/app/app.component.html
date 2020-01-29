@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a routerLink="/signin">Sign In</a>
+        </li>
+        <li>
+          <a routerLink="/signup">Sign Up</a>
+        </li>
+        <li>
+          <a routerLink="/signout">Sign Out</a>
+        </li>
+        <li>
+          <a routerLink="/registerowner">Register Service Center</a>
+        </li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a routerLink="/aboutus">About Us</a>
+      </div>
+      <div class="panel-footer">
+        <a routerLink="/contactus">Contact Us</a>
+      </div>
+      <div class="panel-footer">
+        <a routerLink="/privacypolicy">Privacy Policy</a>
+      </div>
+      <div class="panel-footer">
+        <a routerLink="/terms">Terms and Conditions</a>
+      </div>
+    </div>
+  </div>
+</div>

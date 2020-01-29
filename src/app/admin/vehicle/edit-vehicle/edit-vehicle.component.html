@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Vehicle</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="row">
+                <h3>Edit Vehicle</h3>
+            </div>
+            <form #f="ngForm">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Vehicle Id :</label>
+                        <input readonly name="id" [(ngModel)]="vehicle.id" type="text" id="id" class="form-control"
+                            placeholder="" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Vehicle Make :</label>
+                        <input name="make" [(ngModel)]="vehicle.make" type="text" name="make" id="make" class="form-control"
+                            placeholder="Enter Vehicle Make" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Model :</label>
+                        <input [(ngModel)]="vehicle.model" type="textarea" name="model" id="model"
+                            class="form-control" placeholder="Enter Car Model" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Fuel-type :</label>
+                        <input [(ngModel)]="vehicle.fuelType" type="text" name="fuelType" id="fuelType"
+                            class="form-control" placeholder="Enter fuel type" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="text-align: center">
+                        <input type="submit" (click) ="UpdateVehicle()" class="btn btn-primary" value="Update Vehicle" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

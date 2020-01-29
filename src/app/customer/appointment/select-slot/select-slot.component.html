@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Appointment</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+      <form #f="ngForm" (ngSubmit)="GetAppointment(f.form.value)">
+
+        <div class="row">
+          <div class="form-group">
+            <label> Appointment Date :</label>
+            <input ngModel type="date" name="date" id="date" />
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="form-group">
+            <label>Appointment Time :</label>
+            <input ngModel type="time" name="time" id="time" />
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="form-group" style="text-align: center">
+            <input type="submit" style="float: center;" class="btn btn-primary" value="Get Appointment" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

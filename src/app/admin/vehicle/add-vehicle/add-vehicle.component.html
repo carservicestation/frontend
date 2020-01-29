@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Vehicle</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+      <div class="row">
+        <h3>Add Vehicle</h3>
+      </div>
+      <form #vForm="ngForm" (ngSubmit)="AddVehicle(vForm)">
+
+        <div class="row">
+          <div class="form-group">
+            <label>Car Make :</label>
+            <input ngModel type=" text" name="make" id="make" class="form-control" placeholder="Enter Car Make" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label>Car Model :</label>
+            <input ngModel type="text" name="model" id="model" class="form-control" placeholder="Enter Car Model" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label>Fuel Type :</label>
+            <select  ngModel name="fuelType">
+              <option *ngFor="let fuelType of fuelTypes" [value]="fuelType">{{fuelType}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group" style="text-align: center">
+            <input type="submit" class="btn btn-primary" value="Add Vehicle" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Customer Appointments </title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h3>Customer Appointments</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Appointments Id</th>
+            <th>Date </th>
+            <th>Time </th>
+            <th>Vehicle </th>
+            <th>Service Center</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of appointments">
+            <td>{{appointment.id}}</td>
+            <td>{{appointment.date}}</td>
+            <td>{{appointment.time}}</td>
+            <td>
+                {{appointment.vehicle.make}}
+                {{appointment.vehicle.model}}
+                {{appointment.vehicle.fuelType}}
+            </td>
+            <td>{{appointment.serviceCenter.name}}</td>
+            <td>{{appointment.payment.amount}}</td>
+            <td>{{appointment.status}}</td>
+             <td>  <input class="btn btn-danger" type="button"
+                (click)="DeleteCustomerAppointment(appointment.id)" value="Delete"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
