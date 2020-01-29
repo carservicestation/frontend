@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleService } from 'src/app/dataservices/vehicle.service';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/dataservices/service.service';
+import { Service } from 'src/app/models/service';
+import { OwnerService } from 'src/app/dataservices/owner.service';
 
 @Component({
   selector: 'app-add-service',
@@ -10,19 +11,35 @@ import { ServiceService } from 'src/app/dataservices/service.service';
 })
 export class AddServiceComponent implements OnInit {
 
-  constructor(private ss: ServiceService,private router : Router) { }
+
+  fileData: File = null;
+
+  s: Service = new Service();
+
+  image: any;
+
+  constructor(private ss: ServiceService, private os: OwnerService, private router: Router) { }
 
   ngOnInit() {
   }
-  AddService(addServiceForm)
-  {
-    let service = addServiceForm.form.value;
+
+  ImageFileSelected(f) {
+    this.fileData = <File>f.target.files[0];
+    this.s.image = this.fileData;
+    this.image = <File>f.target.files[0];
+    if (this.fileData.size == 0) {
+      window.alert("Empty file..")
+    }
+  }
+
+  AddService(serForm) {
+    let service = serForm.form.value;
     console.log(service);
-
-    let obsRes = this.ss.AddService2(service);
-
-    obsRes.subscribe((result)=>{
+    let obsRes = this.ss.AddService(service, this.image);
+    obsRes.subscribe((result) => {
       console.log(result);
     })
+    //this.router.navigate(["/selectcenter"])
+
   }
 }

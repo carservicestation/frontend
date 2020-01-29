@@ -28,7 +28,7 @@ import { TermsAndConditionsComponent } from './other/terms-and-conditions/terms-
 import { OwnerConsoleComponent } from './owner/owner-console/owner-console.component';
 import { AddCenterAddressComponent } from './owner/servicecenter/add-center-address/add-center-address.component';
 import { AddServiceCenterComponent } from './owner/servicecenter/add-service-center/add-service-center.component';
-import { AddServiceComponent } from './owner/servicecenter/service/add-service/add-service.component';
+import { AddServiceComponent } from './admin/service/add-service/add-service.component';
 import {
   ListServicesByCenterComponent,
 } from './owner/servicecenter/service/list-services-by-center/list-services-by-center.component';
@@ -54,6 +54,8 @@ import { ListServiceCenterAppointmentComponent } from './owner/servicecenter/lis
 import { ListCustomerAppointmentComponent } from './customer/appointment/list-customer-appointment/list-customer-appointment.component';
 import { ListAppointmentComponent } from './admin/list-appointment/list-appointment.component';
 import { AppointmentCheckoutComponent } from './customer/appointment/appointment-checkout/appointment-checkout.component';
+
+import { FooterComponent } from './other/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -98,7 +100,8 @@ import { AppointmentCheckoutComponent } from './customer/appointment/appointment
     ListServiceCenterAppointmentComponent,
     ListCustomerAppointmentComponent,
     ListAppointmentComponent,
-    AppointmentCheckoutComponent
+    AppointmentCheckoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -131,7 +134,6 @@ import { AppointmentCheckoutComponent } from './customer/appointment/appointment
       { path: "admin/addvehicle", component: AddVehicleComponent },
       { path: "admin/editvehicle/:id", component: EditVehicleComponent },
       { path: "admin/listappointments", component: ListAppointmentComponent },
-
 
       //OWNER
       { path: "registerowner", component: SignUpOwnerComponent },
