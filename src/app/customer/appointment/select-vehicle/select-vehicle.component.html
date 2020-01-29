@@ -22,7 +22,7 @@
         <div class="row">
           <div class="form-group">
             <label>Car Make :</label>
-            <select #m type="select" [(ngModel)]="make" id="v.make" (change)="SelectModel(m.value)">
+            <select #m type="select" [(ngModel)]="v.make" name="make"  id="make" (change)="SelectModel(m.value)">
               <option *ngFor="let make of makes">{{make}}</option>
             </select>
             </div>
@@ -30,7 +30,7 @@
         <div class="row">
           <div class="form-group">
             <label>Car Model :</label>
-            <select #md ngModel type="select" [(ngModel)]="v.model" id="model" (change)="Selectfuel(md.value)">
+            <select #md type="select" [(ngModel)]="v.model" name="model" id="model" (change)="Selectfuel(md.value)">
               <option *ngFor="let model of models">{{model}}</option>
             </select>
           </div>
@@ -39,7 +39,7 @@
         <div class="row">
           <div class="form-group">
             <label>Fuel type : &nbsp;&nbsp; </label><br>
-            <select #ft ngModel type="select" [(ngModel)]="v.fuelType" id="fuelType">
+            <select #ft type="select" [(ngModel)]="v.fuelType" name="fuelType" id="fuelType">
               <option *ngFor="let fuelType of fuelTypes">{{fuelType}}</option>
             </select>
           </div>

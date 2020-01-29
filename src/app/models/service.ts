@@ -8,6 +8,7 @@ export class Service {
 	name: string;
 	desc: string;
 	price: number;
+	image: any;
 
 	constructor() 
 	{
@@ -15,5 +16,6 @@ export class Service {
 		this.name = "";
 		this.desc = "";
 		this.price = 0;
+		this.image = "";
 	}
 }

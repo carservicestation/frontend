@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/dataservices/service.service';
 import { OwnerService } from 'src/app/dataservices/owner.service';
+import { Service } from 'src/app/models/service';
 
 @Component({
   selector: 'app-add-service',
@@ -10,26 +11,29 @@ import { OwnerService } from 'src/app/dataservices/owner.service';
 })
 export class AddServiceComponent implements OnInit {
 
+
+  fileData : File =null;
+
+  s:Service = new Service();
+
   image:any;
 
   constructor(private ss:ServiceService, private os: OwnerService, private router: Router) { }
 
   ngOnInit() {
-
-    let id ;
-
-    // let obsRes =  this.os.GetOwnerByNo(id);
-
-    // obsRes.subscribe((result)=>{
-
-    //   console.log(result);
-
-    // })
-   
   }
-  ImageFileSelected(image)
+
+  ImageFileSelected(f)
   {
-    this.image = image;
+    this.fileData = <File>f.target.files[0];
+    this.s.image = this.fileData;
+
+    this.image = <File>f.target.files[0];
+
+    if(this.fileData.size == 0){
+      window.alert("Empty file..")
+    }
+
   }
 
   AddService(serForm)

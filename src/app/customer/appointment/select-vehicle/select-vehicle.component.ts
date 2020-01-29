@@ -10,47 +10,46 @@ import { Router } from '@angular/router';
 })
 export class SelectVehicleComponent implements OnInit {
 
-  v:Vehicle= new Vehicle();
+  v: Vehicle = new Vehicle();
 
-  makes:any = [];
-  models:any = [];
-  fuelTypes:any = [];
+  makes: any = [];
+  models: any = [];
+  fuelTypes: any = [];
 
-  constructor(private vs:VehicleService,
-              private router:Router) { }
+  constructor(private vs: VehicleService,
+    private router: Router) { }
 
   ngOnInit() {
     let or = this.vs.getDistinctVehicleMakes()
-    or.subscribe((result)=>{
+    or.subscribe((result) => {
       this.makes = result;
       console.log(result)
     })
   }
 
-  SelectModel(make)
-  {
+  SelectModel(make) {
     let or = this.vs.getModelsByVehicleMakes(make)
-    or.subscribe((result)=>{
+    or.subscribe((result) => {
       this.models = result;
       console.log(result)
     })
   }
 
-  Selectfuel(md)
-  {
+  Selectfuel(md) {
+    console.log(this.v)
     let or = this.vs.getFuels(this.v);
-    or.subscribe((result)=>{
+    or.subscribe((result) => {
       this.fuelTypes = result;
       console.log(result)
     })
   }
 
-  AddVehicleToAppointment(vehicle)
-  {
-    let appointment:any = sessionStorage.getItem("appointment")
+  AddVehicleToAppointment(vehicle) {
+    let appointment: any = sessionStorage.getItem("appointment")
     appointment = JSON.parse(appointment);
     appointment.vehicle = this.v;
     console.log(this.v)
+    console.log(vehicle)
     appointment = JSON.stringify(appointment);
     sessionStorage.setItem("appointment", appointment);
     this.router.navigate(['/customer/selectslot'])
