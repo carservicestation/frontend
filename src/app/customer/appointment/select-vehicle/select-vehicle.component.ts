@@ -13,7 +13,7 @@ export class SelectVehicleComponent implements OnInit {
   v: Vehicle = new Vehicle();
 
   makes: any = [];
-  models: any = [];
+  models: any = ["11111","2222222222"];
   fuelTypes: any = [];
 
   constructor(private vs: VehicleService,

@@ -27,16 +27,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let service of services">
+          <tr *ngFor="let service of services; index as i">
             <td>{{service.id}}</td>
+            <td >
+
+              <img *ngIf="i>4" src="data:image/gif;base64,{{service?.image}}" class="img-responsive">
+
+            </td>
             <td>{{service.name}}</td>
             <td>{{service.desc}}</td>
             <td>{{service.price}}</td>
-            <td>
-
-              <img src="data:image/gif;base64,{{service?.image}}" class="img-responsive">
-
-            </td>
+           
             <td><a routerLink="DeleteService(service.id)">Remove</a></td>
             <td><a routerLink="/editcservice/{{service.serviceId}}">Edit</a></td>
           </tr>

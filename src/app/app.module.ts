@@ -2,7 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { MatSelectModule} from '@angular/material/select';
 
 import { AdminConsoleComponent } from './admin/admin-console/admin-console.component';
 import { ListOwnersComponent } from './admin/owner/list-owners/list-owners.component';
@@ -101,14 +103,16 @@ import { FooterComponent } from './other/footer/footer.component'
     ListCustomerAppointmentComponent,
     ListAppointmentComponent,
     AppointmentCheckoutComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSelectModule,
     RouterModule.forRoot([
 
       { path: "", component: HomeComponent},
@@ -123,7 +127,6 @@ import { FooterComponent } from './other/footer/footer.component'
       { path: "changepassword", component: ChangePasswordComponent},
 
       { path: "admin/console", component: AdminConsoleComponent, canActivate:[AuthService, AdminAuthService] },
-      { path: "admin/listowners", component: ListOwnersComponent },
       { path: "admin/listowners", component: ListOwnersComponent },
       { path: "admin/listcenters", component: ListServiceCentersComponent },
       { path: "admin/listcustomers", component: ListCustomerComponent },

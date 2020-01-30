@@ -11,7 +11,7 @@ import { Service } from 'src/app/models/service';
 })
 export class SelectServicesComponent implements OnInit {
 
-  services: Service[] = [];
+  services: any = [];
 
   appointment: Appointment;
 
@@ -23,6 +23,7 @@ export class SelectServicesComponent implements OnInit {
     let observableresult = this.ss.GetServicesByServiceCenter(centerid);
     observableresult.subscribe((result:any) => 
     {
+      console.log(result);
       this.services = result;
       this.appointment = JSON.parse(sessionStorage.getItem("appointment"))
     })

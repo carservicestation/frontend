@@ -29,7 +29,7 @@ export class ListServicesComponent implements OnInit {
     let observableresult = this.ss.DeleteService(sid);
       observableresult.subscribe((result) => {
         console.log(result);
-          this.router.navigate(['/listservices']);
+         this.ngOnInit();
       })
   }
 }

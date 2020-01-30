@@ -18,8 +18,8 @@ export class ServiceService {
     let f = new FormData();
 
     f.append("name", service.name);
-    f.append("desc", service.name);
-    f.append("price", service.name);
+    f.append("desc", service.desc);
+    f.append("price", service.price);
     f.append("image", image);
 
     console.log(f);
