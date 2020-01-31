@@ -15,7 +15,6 @@ export class ListAppointmentComponent implements OnInit {
   ngOnInit() {
     let observableResult = this.as.GetAllAppointments();
     observableResult.subscribe((result) => {
-      console.log(result);
       this.appointments = result;
     });
   }

@@ -1,4 +1,8 @@
+
 export const environment = {
   production: true,
-  restUrl : "http://13.127.254.154:9090/cssbackend"
+
+  //restUrl : "http://localhost:9090/cssbackend1"
+
+  restUrl : "http://13.235.18.110:9090/cssbackend1"
 };
