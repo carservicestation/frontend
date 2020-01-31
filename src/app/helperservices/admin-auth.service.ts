@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 })
 export class AdminAuthService implements CanActivate {
 
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
   {
@@ -17,6 +17,7 @@ export class AdminAuthService implements CanActivate {
     }
     else
     {
+      this.router.navigate(['/home']);
       return false;
     }  
   }

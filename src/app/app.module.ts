@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { MatSelectModule} from '@angular/material/select';
 
 import { AdminConsoleComponent } from './admin/admin-console/admin-console.component';
 import { ListOwnersComponent } from './admin/owner/list-owners/list-owners.component';
@@ -50,7 +49,6 @@ import { AdminAuthService } from './helperservices/admin-auth.service';
 import { OwnerAuthService } from './helperservices/owner-auth.service';
 import { AddCustomerAddressComponent } from './customer/add-customer-address/add-customer-address.component';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
-import { ConfigService } from './helperservices/config.service';
 import { ListCustomerComponent } from './admin/list-customer/list-customer.component';
 import { ListServiceCenterAppointmentComponent } from './owner/servicecenter/list-service-center-appointment/list-service-center-appointment.component';
 import { ListCustomerAppointmentComponent } from './customer/appointment/list-customer-appointment/list-customer-appointment.component';
@@ -107,12 +105,11 @@ import { FooterComponent } from './other/footer/footer.component'
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSelectModule,
     RouterModule.forRoot([
 
       { path: "", component: HomeComponent},
@@ -127,16 +124,16 @@ import { FooterComponent } from './other/footer/footer.component'
       { path: "changepassword", component: ChangePasswordComponent, canActivate:[AuthService]},
 
       { path: "admin/console", component: AdminConsoleComponent, canActivate:[AuthService, AdminAuthService] },
-      { path: "admin/listowners", component: ListOwnersComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/listcenters", component: ListServiceCentersComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/listcustomers", component: ListCustomerComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/addservice", component: AddServiceComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/listservices", component: ListServicesComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/editservice/:id", component: EditServiceComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/listvehicles", component: ListVehiclesComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/addvehicle", component: AddVehicleComponent, canActivate:[AuthService, OwnerAuthService] },
-      { path: "admin/editvehicle/:id", component: EditVehicleComponent , canActivate:[AuthService, OwnerAuthService]},
-      { path: "admin/listappointments", component: ListAppointmentComponent, canActivate:[AuthService, OwnerAuthService] },
+      { path: "admin/listowners", component: ListOwnersComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/listcenters", component: ListServiceCentersComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/listcustomers", component: ListCustomerComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/addservice", component: AddServiceComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/listservices", component: ListServicesComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/editservice/:id", component: EditServiceComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/listvehicles", component: ListVehiclesComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/addvehicle", component: AddVehicleComponent, canActivate:[AuthService, AdminAuthService] },
+      { path: "admin/editvehicle/:id", component: EditVehicleComponent , canActivate:[AuthService, AdminAuthService]},
+      { path: "admin/listappointments", component: ListAppointmentComponent, canActivate:[AuthService, AdminAuthService] },
 
       //OWNER
       { path: "registerowner", component: SignUpOwnerComponent },
@@ -166,9 +163,9 @@ import { FooterComponent } from './other/footer/footer.component'
 
 
       { path: "*", component: NotFoundComponent }
-    ])
+    ],{ useHash: true})
   ],
-  providers: [AuthService, ConfigService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 
 })

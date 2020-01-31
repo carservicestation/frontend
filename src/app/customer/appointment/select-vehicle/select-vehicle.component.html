@@ -22,21 +22,23 @@
         <div class="row">
           <div class="form-group">
             <label>Car Make :</label>
+
             <select #m type="select" [(ngModel)]="v.make" name="make"  id="make" (change)="SelectModel(m.value)">
               <option *ngFor="let make of makes">{{make}}</option>
             </select>
-            </div>
+            
+          </div>
         </div>
         <div class="row">
           <div class="form-group">
             <label>Car Model :</label>
             
-
+<!-- 
             <mat-select  [(ngModel)]="v.model"  name="model" id="model" (change)="Selectfuel(md.value)">
                 <mat-option *ngFor="let model of models">
                   {{model}}
                 </mat-option>
-              </mat-select>
+              </mat-select> -->
 
             <select #md type="select" [(ngModel)]="v.model" name="model" id="model" (change)="Selectfuel(md.value)">
               <option *ngFor="let model of models">{{model}}</option>
