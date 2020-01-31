@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ConfigService } from '../helperservices/config.service';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
@@ -16,6 +15,7 @@ export class AuthDataService {
   }
 
   Validate(user: any) {
+    console.log(user)
     return this.http.post(this.url+"/user/validate",user);
   }
 
