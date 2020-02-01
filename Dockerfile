@@ -1,9 +1,6 @@
-FROM httpd:alpine
-
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
-COPY ./dist/frontend/* /usr/local/apache2/htdocs/
-
+FROM php:7.0-apache
+WORKDIR ./dist/frontend/
+COPY . /var/www/html/
 EXPOSE 80
-
-CMD apachectl -D FOREGROUND
+CMD echo "ServerName localhost" >> /etc/apache2/apache2.conf
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

@@ -1,0 +1,9 @@
+FROM httpd:alpine
+
+RUN echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
+
+COPY ./dist/frontend/* /usr/local/apache2/htdocs/
+
+EXPOSE 80
+
+CMD apachectl -D FOREGROUND
