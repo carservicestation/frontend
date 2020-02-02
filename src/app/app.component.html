@@ -1,33 +1,26 @@
 <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
-
-myfont {
+  myfont {
     font-family: 'Caveat', cursive;
+  }
 
-}
 </style>
-
 <div class="container">
-
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <a class="navbar-brand myfont" routerLink="/home" style="color: crimson;">Auto Care</a>
+    
+    <ul class="nav navbar-nav navbar-left">
+      <li *ngIf="auth.isLoggedIn()"><a (click)="ToConsole()">Console</a></li>
+    </ul>
+    
     <ul class="nav navbar-nav navbar-right">
 
-      <li><a routerLink="/signin">Sign In</a></li>
-      <li><a routerLink="/registerowner">Register Service Center</a></li>
-      <li><a routerLink="/signout">Sign Out</a></li>
-
+      <li *ngIf="!auth.isLoggedIn()"><a routerLink="/signin">Sign In</a></li>
+      <li *ngIf="!auth.isLoggedIn()"><a routerLink="/registerowner">Register Service Center</a></li>
+      <li *ngIf="auth.isLoggedIn()"><a routerLink="/signout">Sign Out&nbsp;&nbsp;&nbsp; </a></li>
     </ul>
   </nav>
-  
-
-  
- 
-  
-
-
   <router-outlet></router-outlet>
   <app-footer></app-footer>
-
 </div>

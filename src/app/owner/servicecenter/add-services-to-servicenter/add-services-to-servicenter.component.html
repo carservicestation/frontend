@@ -17,9 +17,9 @@
                 <tr>
                     <th>Service Id</th>
                     <th>Name </th>
+                    <th></th>
                     <th>Description </th>
                     <th>Price </th>
-                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,16 +27,15 @@
                 <tr *ngFor="let service of services">
                     <td>{{service.id}}</td>
                     <td>{{service.name}}</td>
+                    <td><img src="data:image/gif;base64,{{service?.image}}" class="img-responsive"></td>   
                     <td>{{service.desc}}</td>
                     <td>{{service.price}}</td>
-                    
-        <!-- <td><img style="height: 90px;width: 100px" src="data:image/jpg,this.sanitization.bypassSecurityTrustStyle(`url(${service.image})`);" alt="image"> </td>-->
-                        
-                    <td><button (click)="AddService(service)">Add Service</button></td>
+                                         
+                    <td><button class="btn btn-primary" (click)="AddService(service)">Add Service</button></td>
                 </tr>
             </tbody>
         </table>
-        <a (click)="RegisterSC()">Register Service Center</a>
+        <button class="btn btn-success" (click)="RegisterSC()">Register Service Center</button>
     </div>
 </div>
 </body>

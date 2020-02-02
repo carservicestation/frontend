@@ -27,6 +27,7 @@ export class AddServicesToServicenterComponent implements OnInit {
     observableResult.subscribe((result) => {
       console.log(result);
       this.services = result;
+      console.log(result)
     });
   }
 
